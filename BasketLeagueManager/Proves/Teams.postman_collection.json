@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "735a1db9-1b39-4ffb-ac42-cc4d4c17b5fe",
+		"name": "Teams",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "50140744",
+		"_collection_link": "https://perezvaleraines-5464681.postman.co/workspace/BasketLeagueManager~12c85db6-dbd3-4a7b-af1e-b46dc40a51eb/collection/50140744-735a1db9-1b39-4ffb-ac42-cc4d4c17b5fe?action=share&source=collection_link&creator=50140744"
+	},
+	"item": [
+		{
+			"name": "GET Teams",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{URL}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Teams by ID 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/692ece36c84855593db7c24b"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Teams by ID 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/692ece36c84855593db7c24a"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Team 201",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alicante City Team\",\r\n    \"foundedAt\": \"2010-08-30\",\r\n    \"roster\": [\r\n        {\r\n            \"player\": \"693203e4c90693ffd5fa3d41\",\r\n            \"joinDate\": \"2013-11-05T00:00:00.000Z\",\r\n            \"active\": true,\r\n            \"_id\": \"692ece36c84855593db7c25e\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Team 400",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Real Madrid\",\r\n    \"foundedAt\": \"2005-09-10\",\r\n    \"roster\": [\r\n      {\r\n        \"player\": \"692f4ca1dc02472bed9a9d96\",\r\n        \"joinDate\": \"2016-09-20T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c25e\"\r\n      },\r\n      {\r\n        \"player\": \"692ece36c84855593db7c226\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c25f\"\r\n      },\r\n      {\r\n        \"player\": \"692ece36c84855593db7c227\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c260\"\r\n      }\r\n    ],\r\n    \"__v\": 0\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Player to Roaster's Team 404",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"player\": \"693202f2c90693ffd5fa3d3a\",\r\n    \"joinDate\": \"2002-05-03T22:00:00.000Z\",\r\n    \"active\": true\r\n}"
+				},
+				"url": "{{URL}}/6932043bc90693ffd5fa3d71/roster"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": ""
+		}
+	]
+}

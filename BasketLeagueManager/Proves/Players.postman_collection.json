@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "bd6301ad-1b32-4aaf-8a30-8ed9ca7c89cb",
+		"name": "Players",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "50140744",
+		"_collection_link": "https://perezvaleraines-5464681.postman.co/workspace/BasketLeagueManager~12c85db6-dbd3-4a7b-af1e-b46dc40a51eb/collection/50140744-bd6301ad-1b32-4aaf-8a30-8ed9ca7c89cb?action=share&source=collection_link&creator=50140744"
+	},
+	"item": [
+		{
+			"name": "GET Players",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Inesu's Team\",\r\n    \"foundedAt\": \"2005-09-10\",\r\n    \"roster\": [\r\n      {\r\n        \"player\": \"692ece36c84855593db7c225\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c25e\"\r\n      },\r\n      {\r\n        \"player\": \"692ece36c84855593db7c226\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c25f\"\r\n      },\r\n      {\r\n        \"player\": \"692ece36c84855593db7c227\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c260\"\r\n      }\r\n    ]\r\n  }"
+				},
+				"url": "{{URL}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Player by ID 200",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Inesu's Team\",\r\n    \"foundedAt\": \"2005-09-10\",\r\n    \"roster\": [\r\n      {\r\n        \"player\": \"692ece36c84855593db7c225\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c25e\"\r\n      },\r\n      {\r\n        \"player\": \"692ece36c84855593db7c226\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c25f\"\r\n      },\r\n      {\r\n        \"player\": \"692ece36c84855593db7c227\",\r\n        \"joinDate\": \"2023-09-01T00:00:00.000Z\",\r\n        \"active\": true,\r\n        \"_id\": \"692ece36c84855593db7c260\"\r\n      }\r\n    ]\r\n  }"
+				},
+				"url": "{{URL}}/693070cbfc0905ba781c1f51"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Player by ID 404",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get player by Name 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/find?name=Walter",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"find"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Walter"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get player by Name 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/find/name=Ariel"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert player 201",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nickname\": \"Anny\",\r\n    \"name\": \"Ana García\",\r\n    \"country\": \"ES\",\r\n    \"birthDate\": \"1994-11-12\",\r\n    \"role\": \"base\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert player 400",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nickname\": \"patata\",\r\n    \"name\": \"Alejandro Amat\",\r\n    \"country\": \"ES\",\r\n    \"birthDate\": \"1980-05-09\",\r\n    \"role\": \"pivot\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Update player by ID 200",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\" : \"US\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "693070cbfc0905ba781c1f51"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update player by ID 400",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nickname\" : \"Hien\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "692ece36c84855593db7c226"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Player 400",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{URL}}/692f4ca1dc02472bed9a9d96"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": ""
+		}
+	]
+}

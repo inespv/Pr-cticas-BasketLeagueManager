@@ -1,0 +1,19 @@
+<!Doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>
+			{% block title %}Basket League Manager
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+	</head>
+	<body>
+		<header>
+			{% include "menu.njk" %}
+		</header>
+		<div class="container"> {% block contenido %}{% endblock %}
+			</div>
+		</body>
+	</html>

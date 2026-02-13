@@ -1,0 +1,168 @@
+{% extends "base.njk" %}
+
+{% block title %}Jugador |
+	{{ player.name }}
+{% endblock %}
+
+{% block contenido %}
+	<style>
+		body {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			min-height: 100vh;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: #2d3748;
+		}
+
+		.content-container {
+			max-width: 800px;
+			margin: 60px auto;
+			padding: 0 20px;
+		}
+
+		.profile-card {
+			background: white;
+			border-radius: 20px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+			animation: fadeIn 0.5s ease-out;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.profile-header {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			padding: 40px;
+			text-align: center;
+			color: white;
+		}
+
+		.profile-header h1 {
+			margin: 10px 0 5px;
+			font-size: 2.5rem;
+		}
+
+		.profile-header .nickname {
+			font-size: 1.2rem;
+			opacity: 0.9;
+			font-style: italic;
+		}
+
+		.profile-body {
+			padding: 40px;
+		}
+
+		.info-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			margin-bottom: 40px;
+		}
+
+		.info-item label {
+			display: block;
+			text-transform: uppercase;
+			font-size: 0.8rem;
+			font-weight: bold;
+			color: #a0aec0;
+			margin-bottom: 5px;
+		}
+
+		.info-item p {
+			font-size: 1.2rem;
+			font-weight: 500;
+			margin: 0;
+		}
+
+		.badge-role {
+			background: #edf2f7;
+			padding: 4px 12px;
+			border-radius: 15px;
+			font-size: 0.9rem;
+			text-transform: capitalize;
+		}
+
+		.actions-footer {
+			border-top: 1px solid #edf2f7;
+			padding: 20px 40px;
+			background: #f8fafc;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.btn {
+			padding: 10px 25px;
+			border-radius: 10px;
+			font-weight: 600;
+			text-decoration: none;
+			transition: all 0.2s;
+		}
+
+		.btn-back {
+			color: #718096;
+		}
+
+		.btn-back:hover {
+			color: #2d3748;
+		}
+
+		.btn-edit {
+			background: #667eea;
+			color: white;
+		}
+
+		.btn-edit:hover {
+			background: #764ba2;
+			transform: translateY(-2px);
+		}
+	</style>
+
+	<div class="content-container">
+		<div class="profile-card">
+			<div class="profile-header">
+				<div style="font-size: 4rem;">🏀</div>
+				<h1>{{ player.name }}</h1>
+				<p class="nickname">@{{ player.nickname }}</p>
+			</div>
+
+			<div class="profile-body">
+				<div class="info-grid">
+					<div class="info-item">
+						<label>Nacionalidad</label>
+						<p>📍
+							{{ player.country }}</p>
+					</div>
+					<div class="info-item">
+						<label>Posición</label>
+						<p>
+							<span class="badge-role">{{ player.role }}</span>
+						</p>
+					</div>
+					<div class="info-item">
+						<label>Fecha de Nacimiento</label>
+						<p>📅
+							{{ player.birthDate.toISOString().substring(0,10) if player.birthDate else "No registrada" }}</p>
+					</div>
+					<div class="info-item">
+						<label>ID Sistema</label>
+						<p style="font-size: 0.8rem; color: #cbd5e0;">{{ player.id }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="actions-footer">
+				<a href="/players" class="btn btn-back">← Volver al listado</a>
+				<a href="/players/{{ player.id }}/edit" class="btn btn-edit">Editar Jugador</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

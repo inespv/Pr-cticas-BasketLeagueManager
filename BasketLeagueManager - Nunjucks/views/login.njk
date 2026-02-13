@@ -1,0 +1,115 @@
+{% extends "base.njk" %}
+
+{% block title %}Login
+{% endblock %}
+
+{% block contenido %}
+	<style>
+		body {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			min-height: 100vh;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		.login-container {
+			max-width: 450px;
+			margin: 80px auto;
+			padding: 0 20px;
+		}
+
+		.login-card {
+			background: white;
+			border-radius: 15px;
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+		}
+
+		.login-header {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			padding: 30px;
+			text-align: center;
+		}
+
+		.login-header h1 {
+			margin: 0;
+			font-size: 2rem;
+			font-weight: bold;
+		}
+
+		.login-body {
+			padding: 40px;
+		}
+
+		.form-group {
+			margin-bottom: 25px;
+		}
+
+		.form-group label {
+			font-weight: 600;
+			color: #495057;
+			margin-bottom: 8px;
+		}
+
+		.form-control {
+			border-radius: 8px;
+			border: 2px solid #e9ecef;
+			padding: 12px 15px;
+			transition: border-color 0.3s;
+		}
+
+		.form-control:focus {
+			border-color: #667eea;
+			box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+		}
+
+		.btn-primary {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border: none;
+			border-radius: 8px;
+			padding: 12px;
+			font-weight: 600;
+			width: 100%;
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+			background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+		}
+
+		.alert {
+			border-radius: 8px;
+			margin-bottom: 20px;
+		}
+	</style>
+
+	<div class="login-container">
+		<div class="login-card">
+			<div class="login-header">
+				<h1>🏀 Iniciar Sesión</h1>
+			</div>
+
+			<div class="login-body">
+				{% if (error) %}
+					<div class="alert alert-danger">{{ error.message }}</div>
+				{% endif %}
+
+				<form action="/auth/login" method="post">
+					<div class="form-group">
+						<label for="login">Usuario:</label>
+						<input type="text" class="form-control" name="login" id="login" required/>
+					</div>
+
+					<div class="form-group">
+						<label for="password">Contraseña:</label>
+						<input type="password" class="form-control" name="password" id="password" required/>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
